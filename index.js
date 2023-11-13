@@ -33,6 +33,8 @@ function searchMeal() {
         const ingredients = getIngredients(meal);
         // Generate Html to display meal data
         const recipeHtml = `
+         <button id="hide-dish">X</button>
+
             <div class="details">
                 <h2>${meal.strMeal}</h2>
                 <h4>${meal.strArea}</h4>
@@ -52,6 +54,9 @@ function searchMeal() {
 
         const hideRecipeBtn = document.getElementById("hide-recipe");
         hideRecipeBtn.addEventListener("click", hideRecipe);
+  
+        const hideDishBtn = document.getElementById("hide-dish");
+        hideDishBtn.addEventListener("click", hideDish);
         const showRecipeBtn = document.getElementById("show-recipe");
         showRecipeBtn.addEventListener("click", showRecipe);
         searchContainer.style.opacity = '0';
@@ -87,6 +92,9 @@ function getIngredients(meal) {
 function hideRecipe() {
     const recipe = document.getElementById("recipe");
     recipe.style.display = "none";
+}
+function hideDish() {
+    location.reload();
 }
 function showRecipe() {
     const recipe = document.getElementById("recipe");
